@@ -20,14 +20,8 @@ coco_to_group = {
     "fork": "metal",
     "knife": "metal",
     "spoon": "metal",
-    "remote": "metal",
     "cell phone": "metal",  # likely includes aluminum/copper
-    "laptop": "metal",
     "keyboard": "metal",
-    "microwave": "metal",
-    "refrigerator": "metal",
-    "oven": "metal",
-    "toaster": "metal",
 
     # TRASH-like objects (plastics, food waste, ambiguous)
     "bottle": "trash",  # assumed plastic
@@ -43,13 +37,7 @@ coco_to_group = {
     "donut": "trash",
     "cake": "trash",
     "toothbrush": "trash",
-    "mouse": "trash",
-    "tv": "trash",  # mixed waste
-    "handbag": "trash",
-    "backpack": "trash",
-    "suitcase": "trash",
     "tie": "trash",
-    "umbrella": "trash"
 }
 
 # Characters to send over serial
@@ -103,13 +91,13 @@ try:
 
         # Send to Arduino
         if selected_label in class_to_char:
-            # ser.write(class_to_char[selected_label])  # Uncomment to send
+            # ser.write(class_to_char[selected_label])  # Uncomment to send ( if serial is used
             print(f"Sent to Arduino: {class_to_char[selected_label].decode()}")
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-        time.sleep(3)
+        time.sleep(3) # Wait 3 seconds
 
 except KeyboardInterrupt:
     print("Stopped by user.")

@@ -1,3 +1,4 @@
+# Old version
 import cv2
 import time
 from ultralytics import YOLO
@@ -28,7 +29,8 @@ class_to_char = {
 """ # COMMENT / UNCOMMENT WHEN NEEDED
 # Setup serial communication with Arduino
 ser = serial.Serial('COM5', 9600)  # Replace 'COM5' with the correct port if needed
-time.sleep(2)  # Allow time for Arduino to initialize"""
+time.sleep(2)  # Allow time for Arduino to initialize
+"""
 
 # Initialize webcam (0 = default camera)
 cap = cv2.VideoCapture(0)
@@ -66,7 +68,7 @@ try:
 
         # Send character to Arduino if valid label
         if label in class_to_char:
-            """ser.write(class_to_char[label])""" # COMMENT / UNCOMMENT WHEN NEEDED
+            #ser.write(class_to_char[label]) # COMMENT / UNCOMMENT WHEN NEEDED
             print(f"Sent to Arduino: {class_to_char[label].decode()}")
 
         # Exit on 'q' key press
@@ -81,5 +83,5 @@ except KeyboardInterrupt:
 
 finally:
     cap.release()
-    """ser.close()"""
+    #ser.close()
     cv2.destroyAllWindows()
